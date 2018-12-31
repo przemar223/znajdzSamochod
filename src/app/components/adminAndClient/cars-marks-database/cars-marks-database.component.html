@@ -1,0 +1,68 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="buttons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout" class="buttons">
+      <button mat-button (click)="addCarMarkButton()">
+        {{resourcer.CarsMarkAddMark}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout" class="buttons">
+      <button mat-button [disabled]="isCarMarkChecked()" (click)="editCarMarkButton()">
+        {{resourcer.CarsMarkEditMark}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout" class="buttons">
+      <button mat-button [disabled]="isCarMarkChecked()" (click)="removeCarMarkButton()">
+        {{resourcer.CarsMarkRemoveMark}}
+      </button>
+    </nav>
+    <nav class="buttons">
+      <button mat-button [disabled]="isCarMarkChecked()" (click)="previewCarMarkButton()">
+        {{resourcer.CarsMarkPreviewShowrooms}}
+      </button>
+    </nav>
+  </div>
+
+  <div *ngIf="!loginService.isLogout" class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="buttons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<p class="warning" [class.hidden]=!isInfo>{{info}}</p>
+
+<div class="title">
+  <h1>
+    {{resourcer.CarsMarkTitle}}
+  </h1>
+</div>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{resourcer.CarsMarkSearchByMark}}">
+</mat-form-field>
+
+<table mat-table matSortActive="mark" matSortDirection="asc" matSortDisableClear #table [dataSource]="dataSource"
+  matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="mark">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsMarkMark}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.mark}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;" [ngClass]="{'highlight': selectedRowIndex == element.id}"
+    (click)="highlight(element)"></tr>
+
+</table>

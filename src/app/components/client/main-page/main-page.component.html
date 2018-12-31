@@ -1,0 +1,31 @@
+<div class="title">
+  <h1>
+    {{resourcer.ClientMainPageTitle}}
+  </h1>
+  <h1 class="blue">{{resourcer.ClientMainPageTitle2}}</h1>
+</div>
+
+<nav class="buttons">
+  <ul>
+    <li>
+      <button mat-button (click)="showCarMarksButton()">
+        {{resourcer.ClientMainPageShowMarks}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="showCarDbButton()">
+        {{resourcer.ClientMainPageShowModels}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="showShowroomsButton()">
+        {{resourcer.ClientMainPageShowShowrooms}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="seachYourCarButton()">
+        {{resourcer.ClientMainPageSearchCarForYou}}
+      </button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,96 @@
+* {
+
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+  }
+
+   .title{
+}
+
+.nav-container{
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px solid black;
+  height: 51px;
+}
+ .nav-container-one {
+   width: 50%;
+ }
+
+ .nav-container-two {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.float-right {
+  float: right;
+}
+
+.nav-container-two button {
+  margin-right:0;
+}
+
+.login-text {
+  padding-right: 10px;
+  text-align: right;
+}
+
+h1 {
+  font-size: 4em;
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+
+nav .button {
+  padding: 5px 10px;
+  text-decoration: solid;
+  display: inline-block;
+  background-color: rgb(155, 153, 153);
+  border-radius: 4px;
+  float: left;
+  font-weight: bold;
+}
+
+nav button:link,  button:visited{
+  color: #607d8b;
+}
+
+nav button:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+  font-weight: 900;
+}
+
+.buttons {
+  padding-top: 2em;
+  margin: 0 0 0 15.9%;
+}
+
+.buttons ul {
+  columns:2;
+}
+
+.buttons ul li {
+  list-style-type: none;
+  /* odstepy miedzy przyciskami */
+  padding-top: 2em; 
+}
+
+.buttons button {
+  padding: 15px 10px;
+  width: 9em;
+  font-size: 3em;
+  text-decoration: none;
+  background-color: rgb(155, 153, 153);
+}
+
+.float-right {
+  float: right;
+}
+
+@media screen and (max-width: 1200px) {
+  .buttons ul {
+    columns:1;
+  }
+}

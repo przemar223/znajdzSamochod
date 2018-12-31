@@ -1,0 +1,153 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="buttons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout && !isSell" class="buttons">
+      <button mat-button (click)="addBodyButton()">
+        {{resourcer.CarsBodiesAddBody}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout && !isSell" class="buttons">
+      <button mat-button [disabled]="isBodyChecked()" (click)="editBodyButton()">
+        {{resourcer.CarsBodiesEditBody}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout && !isSell" class="buttons">
+      <button mat-button [disabled]="isBodyChecked()" (click)="removeBodyButton()">
+        {{resourcer.CarsBodiesRemoveBody}}
+      </button>
+    </nav>
+    <nav class="buttons">
+      <button mat-button (click)="backToModelButton()">
+        {{resourcer.AdminMenuModels}}
+      </button>
+    </nav>
+  </div>
+
+  <div *ngIf="!loginService.isLogout" class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="buttons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<p class="warning" [class.hidden]=!isInfo>{{info}}</p>
+
+<div class="title">
+  <h1>
+    {{resourcer.CarsBodiesTitle}} <br> {{vehicleMark}} {{vehicleModel}}
+  </h1>
+</div>
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{resourcer.CarsBodiesSearchByBody}}">
+</mat-form-field>
+
+<table mat-table matSortActive="name" matSortDirection="asc" matSortDisableClear [dataSource]="dataSource" matSort
+  #hBSort="matSort" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesBody}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="trunkCapacity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesTrunkCapacity}}</th>
+    <td mat-cell *matCellDef="let element"> {{element.trunkCapacity}} l </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;" [ngClass]="{'highlight': selectedRowIndex == element.id}"
+    (click)="highlight(element)"></tr>
+
+</table>
+
+<!-- ************************************************************************************ -->
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter2($event.target.value)" placeholder="{{resourcer.CarsBodiesSearchByDrive}}">
+</mat-form-field>
+
+<table mat-table matSortActive="drive" matSortDirection="asc" matSortDisableClear [dataSource]="dataSource2" matSort
+  #sBSort="matSort" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="drive">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesDrive}} </th>
+    <td mat-cell *matCellDef="let element2"> {{element2.drive}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="engine">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesEngine}} </th>
+    <td mat-cell *matCellDef="let element2"> {{element2.engine}} {{engineUnit}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="horsePower">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesHorsePower}} </th>
+    <td mat-cell *matCellDef="let element2"> {{element2.horsePower}} KM </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acceleration">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesAcceleration}} </th>
+    <td mat-cell *matCellDef="let element2"> {{element2.acceleration}} s </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fuelConsumption">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesFuelConsumption}} </th>
+    <td mat-cell *matCellDef="let element2"> {{element2.fuelConsumption}} {{fuelConsumptionUnit}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.CarsBodiesPrice}} </th>
+    <td mat-cell *matCellDef="let element2"> {{element2.price}} zł </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+  <tr mat-row *matRowDef="let element2; columns: displayedColumns2;" [ngClass]="{'highlight': selectedRowIndex2 == element2.id}"
+    (click)="highlight2(element2)"></tr>
+
+  <ng-container *ngIf="isSell" matColumnDef="sellButton">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <nav class="buttons">
+        <button mat-button (click)="sellCarButton(element)">
+          {{resourcer.CarsBodiesSellCar}}
+        </button>
+      </nav>
+    </td>
+  </ng-container>
+
+</table>
+<br>
+
+<div class="nav-container-one">
+  <nav *ngIf="!loginService.isLogout&& !isSell" class="buttons">
+    <button mat-button [disabled]="isBodyChecked()" (click)="addDriveButton()">
+      {{resourcer.CarsBodiesAddEngine}}
+    </button>
+  </nav>
+  <nav *ngIf="!loginService.isLogout && !isSell" class="buttons">
+    <button mat-button [disabled]="isDriveChecked()" (click)="editDriveButton()">
+      {{resourcer.CarsBodiesEditEngine}}
+    </button>
+  </nav>
+  <nav *ngIf="!loginService.isLogout && !isSell" class="buttons">
+    <button mat-button [disabled]="isDriveChecked()" (click)="removeDriveButton()">
+      {{resourcer.CarsBodiesRemoveEngine}}
+    </button>
+  </nav>
+  <nav *ngIf="!loginService.isLogout && !isSell" class="buttons">
+    <button mat-button [disabled]="isDriveChecked()" (click)="sellDriveButton()">
+      {{resourcer.CarsBodiesSellCar2}}
+    </button>
+  </nav>
+</div>

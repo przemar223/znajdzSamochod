@@ -1,0 +1,50 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav class="upperButtons">
+      <button mat-button (click)="markButton()">
+        {{resourcer.AdminAddCarMarkMarks}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{titleLabel}}
+  </h1>
+</div>
+
+<form class="example-form">
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarMarkMark}}" (keyup)="isPressEnter($event)" [(ngModel)]="carMark.mark"
+      [formControl]="carMarkControl" required name="1">
+    <mat-error *ngIf="carMarkControl.hasError('required')">{{resourcer.AdminAddCarMarkMarkInsert}}</mat-error>
+    <mat-hint>{{carMarkControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <p class="warning" [class.hidden]="isAllFields">{{resourcer.AllFields}}</p>
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="approveMark()">
+      {{resourcer.Approve}}
+    </button>
+  </nav>
+</form>

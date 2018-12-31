@@ -1,0 +1,75 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav class="upperButtons">
+      <button mat-button (click)="showroomsButton()">
+        {{resourcer.AdminAddShowroomShowrooms}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{titleLabel}}
+  </h1>
+</div>
+
+<form class="example-form">
+
+  <mat-form-field>
+    <mat-select placeholder="{{resourcer.AdminAddShowroomMark}}" (keyup)="isPressEnter($event)" [formControl]="markControl"
+      required [(ngModel)]="showroom.mark" (selectionChange)="changeMark($event.value)">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let carMark of carMarks" [value]="carMark.mark">
+        {{carMark.mark}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="markControl.hasError('required')">{{resourcer.AdminAddShowroomMarkInsert}}</mat-error>
+    <mat-hint>{{markControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddShowroomAddress}}" (keyup)="isPressEnter($event)" [(ngModel)]="showroom.address"
+      [formControl]="addressControl" required name="2">
+    <mat-error *ngIf="addressControl.hasError('required')">{{resourcer.AdminAddShowroomAddressInsert}}</mat-error>
+    <mat-hint>{{addressControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="{{resourcer.AdminAddShowroomProvince}}" (keyup)="isPressEnter($event)" [formControl]="provinceControl"
+      required [(ngModel)]="showroom.province" (selectionChange)="changeProvince($event.value)">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let province of provinces" [value]="province.name">
+        {{province.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="provinceControl.hasError('required')">{{resourcer.AdminAddShowroomProvinceInsert}}</mat-error>
+    <mat-hint>{{provinceControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <p class="warning" [class.hidden]="isAllFields">{{resourcer.AllFields}}</p>
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="approveShowroomButton()">
+      {{resourcer.Approve}}
+    </button>
+  </nav>
+</form>

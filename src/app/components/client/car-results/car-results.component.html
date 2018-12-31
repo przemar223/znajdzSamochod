@@ -1,0 +1,59 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="buttons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav class="buttons">
+      <button mat-button (click)="backButton()">
+        {{resourcer.Back}}
+      </button>
+    </nav>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{resourcer.ClientCarResultsTitle}}
+  </h1>
+  <h2>
+    {{resourcer.ClientCarResultsTitle2}}
+  </h2>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let finishCar of finishCars">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{resourcer.ClientCarResultsRatio}} {{finishCar.ratio}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{finishCar.mark}} {{finishCar.model}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{resourcer.ClientCarResultsSegment}} {{finishCar.carSegment}}</p>
+    <p>{{resourcer.ClientCarResultsBody}} {{finishCar.bodyType}}</p>
+    <p>{{resourcer.ClientCarResultsTrunkCapacity}} {{finishCar.trunkCapacity}} l</p>
+    <p>{{resourcer.ClientCarResultsHorsePower}} {{finishCar.power}} KM</p>
+    <p>{{resourcer.ClientCarResultsAcceleration}} {{finishCar.acceleration}} s</p>
+    <p>{{resourcer.ClientCarResultsFuelConsumption}} {{finishCar.fuelConsumption}}</p>
+    <p>{{resourcer.ClientCarResultsDrive}} {{finishCar.drive}}</p>
+    <p>{{resourcer.ClientCarResultsEngine}} {{finishCar.engine}}</p>
+    <p>{{resourcer.ClientCarResultsPrice}} {{finishCar.price}} zł</p>
+    <p><a target="_blank" rel="noopener noreferrer" href="{{finishCar.url}}">{{resourcer.ClientCarResultsVisitShowroom}}</a></p>
+
+    <mat-accordion>
+      <mat-expansion-panel class="in">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{resourcer.ClientCarResultsShowShowroomsAddresses}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p *ngFor="let carShowroom of finishCar.carShowrooms">
+          {{resourcer.ClientCarResultsAddress}} {{carShowroom.address}} {{resourcer.ClientCarResultsProvince}}
+          {{carShowroom.province}}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-expansion-panel>
+</mat-accordion>

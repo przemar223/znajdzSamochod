@@ -1,0 +1,90 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav class="upperButtons">
+      <button mat-button (click)="buyersButton()">
+        {{resourcer.Back}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{titleLabel}}
+  </h1>
+</div>
+
+<form class="example-form">
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddBuyerFirstName}}" (keyup)="isPressEnter($event)" [(ngModel)]="buyer.firstName"
+      [formControl]="firstNameControl" required name="1">
+    <mat-error *ngIf="firstNameControl.hasError('required')">{{resourcer.AdminAddBuyerFirstNameInsert}}</mat-error>
+    <mat-hint>{{firstNameControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddBuyerLastName}}" (keyup)="isPressEnter($event)" [(ngModel)]="buyer.lastName"
+      [formControl]="lastNameControl" required name="2">
+    <mat-error *ngIf="lastNameControl.hasError('required')">{{resourcer.AdminAddBuyerLastNameInsert}}</mat-error>
+    <mat-hint>{{lastNameControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddBuyerAge}}" (keyup)="isPressEnter($event)" pattern="^(?!10)(?!11)(?!12)(?!13)(?!14)(?!15)(?!16)(?!17)([1-9]{1}[0-9]{1})$"
+      [(ngModel)]="buyer.age" onkeypress="return event.charCode >= 48" [formControl]="ageControl" required type="number"
+      onkeypress="return event.charCode >= 48" name="3">
+    <mat-error *ngIf="ageControl.hasError('required')">{{resourcer.AdminAddBuyerAgeInsert}}</mat-error>
+    <mat-hint>{{ageControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="{{resourcer.AdminAddBuyerSex}}" (keyup)="isPressEnter($event)" [formControl]="sexControl"
+      [(ngModel)]="buyer.sex" required (selectionChange)="changeSex($event.value)">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let sex of sexes" [value]="sex">
+        {{sex}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="sexControl.hasError('required')">{{resourcer.AdminAddBuyerSexInsert}}</mat-error>
+    <mat-hint>{{sexControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddBuyerPhone}}" (keyup)="isPressEnter($event)" [(ngModel)]="buyer.phone"
+      [formControl]="phoneControl" required name="5">
+    <mat-error *ngIf="phoneControl.hasError('required')">{{resourcer.AdminAddBuyerPhoneInsert}}</mat-error>
+    <mat-hint>{{phoneControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddBuyerEmail}}" (keyup)="isPressEnter($event)" [(ngModel)]="buyer.email"
+      [formControl]="emailControl" required name="6">
+    <mat-error *ngIf="emailControl.hasError('required')">{{resourcer.AdminAddBuyerEmailInsert}}</mat-error>
+    <mat-hint>{{emailControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <p class="warning" [class.hidden]="isAllFields">{{resourcer.AllFields}}</p>
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="approveBuyerButton()">
+      {{resourcer.Approve}}
+    </button>
+  </nav>
+</form>

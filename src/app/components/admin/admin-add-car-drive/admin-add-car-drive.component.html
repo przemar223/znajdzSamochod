@@ -1,0 +1,97 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav class="upperButtons">
+      <button mat-button (click)="backButton()">
+        {{resourcer.Back}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="title">
+  <h1>
+    {{titleLabel}} {{mark}} {{model}} <br> {{body}}:
+  </h1>
+</div>
+
+<form class="example-form">
+  <mat-form-field>
+    <mat-select placeholder="{{resourcer.AdminAddCarDriveDrive}}" (keyup)="isPressEnter($event.value)" [formControl]="driveControl" required [(ngModel)]="carDrive.drive"
+      (selectionChange)="changeDrive($event.value)">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let drive of drives" [value]="drive.name">
+        {{drive.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="driveControl.hasError('required')">{{resourcer.AdminAddCarDriveDriveInsert}}</mat-error>
+    <mat-hint>{{driveControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarDriveEngine}}" (keyup)="isPressEnter($event)" [(ngModel)]="carDrive.engine"
+      [formControl]="engineControl" required name="2" type="number" min="1">
+    <mat-error *ngIf="engineControl.hasError('required')">{{resourcer.AdminAddCarDriveEngineInsert}}</mat-error>
+    <mat-hint>{{engineControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarDriveHorsePower}}" (keyup)="isPressEnter($event)" [(ngModel)]="carDrive.horsePower"
+      [formControl]="horsePowerControl" required name="3" type="number" onkeypress="return event.charCode >= 48" min="1">
+    <mat-error *ngIf="horsePowerControl.hasError('required')">{{resourcer.AdminAddCarDriveHorsePowerInsert}}</mat-error>
+    <mat-hint>{{horsePowerControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarDriveAcceleration}}" (keyup)="isPressEnter($event)" [(ngModel)]="carDrive.acceleration"
+      [formControl]="accelerationControl" required name="6" type="number" min="1">
+    <mat-error *ngIf="accelerationControl.hasError('required')">{{resourcer.AdminAddCarDriveAccelerationInsert}}</mat-error>
+    <mat-hint>{{accelerationControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarDriveFuelConsumption}} {{consumptionUnit}}" (keyup)="isPressEnter($event)" [(ngModel)]="carDrive.fuelConsumption"
+      [formControl]="fuelConsumptionControl" required name="4" type="number" min="1">
+    <mat-error *ngIf="fuelConsumptionControl.hasError('required')">{{resourcer.AdminAddCarDriveFuelConsumptionInsert}} {{consumptionUnit}}</mat-error>
+    <mat-hint>{{fuelConsumptionControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarDrivePrice}}" (keyup)="isPressEnter($event)" [(ngModel)]="carDrive.price" [formControl]="priceControl"
+      required name="5" type="number" onkeypress="return event.charCode >= 48" min="1">
+    <mat-error *ngIf="priceControl.hasError('required')">{{resourcer.AdminAddCarDrivePriceInsert}}</mat-error>
+    <mat-hint>{{priceControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <p class="warning" [class.hidden]="isAllFields">{{resourcer.AllFields}}</p>
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="approveDriveButton()">
+      {{resourcer.Approve}}
+    </button>
+  </nav>
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="potentialBuyersButton()">
+      {{resourcer.AdminAddCarDriveApproveAndFindBuyers}}
+    </button>
+  </nav>
+</form>

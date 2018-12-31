@@ -1,0 +1,81 @@
+
+* {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+ }
+ 
+ /* Tytył */
+ .title{ }
+
+ h1 {
+   font-size: 2.5em;
+   margin-top: 2em;
+ }
+
+ h2 {
+  text-align: center;
+   font-size: 2em;
+   color: rgb(48, 44, 44);
+   margin-top: 0.5em;
+ }
+
+.nav-container{
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px solid black;
+  height: 51px;
+}
+ .nav-container-one {
+   width: 100%;
+ }
+
+/* Przyciski */
+nav{
+  text-align: left;
+  background-color: #eee;
+}
+
+nav button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: solid;
+  display: inline-block;
+  background-color: #cfd8dc;
+  border-radius: 4px;
+  float: left;
+  font-weight: bold;
+}
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description {
+  color: black;
+  font-size: 1.5em;
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
+  padding-left: 3px;
+  color: black;
+  font-size: 1.5em;
+  text-align: left;
+  margin: 0 auto;
+  width: 45%;
+}
+
+.mat-expansion-panel p {
+  padding-left: 45%;
+  font-size: 1.2em;
+  color: black;
+  font: bold;
+}
+
+.mat-expansion-panel{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.mat-expansion-panel .in{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mat-expansion-panel .in p {
+  padding-left: 0%;
+}

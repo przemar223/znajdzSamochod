@@ -1,0 +1,148 @@
+
+* {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+ }
+ 
+ /* Tytył */
+ .title{ }
+
+ .nav-container{
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px solid black;
+  height: 51px;
+}
+ .nav-container-one {
+   width: 50%;
+ }
+
+ .nav-container-two {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.float-right {
+  float: right;
+}
+
+.nav-container-two button {
+  margin-right:0;
+}
+
+.login-text {
+  padding-right: 10px;
+  text-align: right;
+}
+ 
+ h1 {
+   font-size: 2.5em;
+   margin-top: 2em;
+ }
+ 
+ /* Przyciski */
+ nav{
+   text-align: left;
+   background-color: #eee;
+ }
+ 
+ nav button {
+   padding: 5px 10px;
+   margin-right: 5px;
+   text-decoration: solid;
+   display: inline-block;
+   background-color: #cfd8dc;
+   border-radius: 4px;
+   float: left;
+   font-weight: bold;
+ }
+  
+ /* nav button:hover {
+   background-color: #cfd8dc;
+   color: #7878c2;
+ } */
+
+   .mat-form-field {
+     font-size: 14px;
+     width: 100%;
+   }
+
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .example-margin {
+    margin: 10px;
+  }
+   
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .mat-table {
+    display: table;
+    width: 100%;
+  }
+    
+  .highlight{
+    background: rgb(155, 154, 167);
+  }
+
+  /* modyfikowanie tabeli */
+
+  .mat-column-carSegment {
+    width:7.7%;
+  }
+
+  .mat-column-mark {
+    width:7.7%;
+  }
+
+  .mat-column-model {
+    width:7.7%;
+  }
+
+  .mat-column-body {
+    width:7.7%;
+  }
+
+  .mat-column-trunkCapacity {
+    width:7.7%;
+  }
+
+  .mat-column-drive {
+    width:7.7%;
+  }
+
+  .mat-column-engine {
+    width:7.7%;
+  }
+
+  .mat-column-horsePower {
+    width:7.7%;
+  }
+
+  .mat-column-fuelConsumption {
+    width:7.7%;
+  }
+
+  .mat-column-price {
+    width:7.7%;
+  }
+
+  .mat-column-date {
+    width:7.7%;
+  }
+
+  .mat-column-firstName {
+    width:7.7%;
+  }
+
+  .mat-column-lastName {
+    width:7.7%;
+  }
+

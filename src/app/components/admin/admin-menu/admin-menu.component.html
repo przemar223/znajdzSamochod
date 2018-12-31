@@ -1,0 +1,84 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="float-right">
+        <button class="button" mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<p class="warning" [class.hidden]=info>{{changePasswordInfo}}</p>
+<div class="title">
+  <h1>
+    {{resourcer.AdminMenuTitle}}
+  </h1>
+</div>
+
+<nav class="buttons">
+  <ul>
+    <li>
+      <button mat-button (click)="showCarMarksButton()">
+        {{resourcer.AdminMenuMarks}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="showCarDbButton()">
+        {{resourcer.AdminMenuModels}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="showShowroomsButton()">
+        {{resourcer.AdminMenuShowrooms}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="showBuyersButton()">
+        {{resourcer.AdminMenuBuyers}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="showAllSendCarsButton()">
+        {{resourcer.AdminMenuSoldCars}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="changeMailboxButton()">
+        {{resourcer.AdminMenuEmail}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="addCarMarkButton()">
+        {{resourcer.AdminMenuAddMark}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="addCarModelButton()">
+        {{resourcer.AdminMenuAddModel}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="addShowroomButton()">
+        {{resourcer.AdminMenuAddShowroom}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="addBuyerButton()">
+        {{resourcer.AdminMenuAddBuyer}}
+      </button>
+    </li>
+    <li>
+      <button mat-button (click)="changePasswordButton()">
+        {{resourcer.AdminMenuChangePassword}}
+      </button>
+    </li>
+  </ul>
+</nav>

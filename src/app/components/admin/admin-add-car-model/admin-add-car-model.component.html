@@ -1,0 +1,151 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav class="upperButtons">
+      <button mat-button (click)="backButton()">
+        {{resourcer.Back}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="title">
+  <h1>
+    {{titleLabel}}
+  </h1>
+</div>
+
+<form class="example-form">
+  <mat-form-field>
+    <mat-select placeholder="{{resourcer.AdminAddCarModelMark}}" (keyup)="isPressEnter($event)" [formControl]="markControl"
+      required [(ngModel)]="carModel.mark" (selectionChange)="changeMark($event.value)">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let carMark of carMarks" [value]="carMark.mark">
+        {{carMark.mark}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="markControl.hasError('required')">{{resourcer.AdminAddCarModelMarkInsert}}</mat-error>
+    <mat-hint>{{markControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarModelModel}}" (keyup)="isPressEnter($event)" [(ngModel)]="carModel.model"
+      [formControl]="modelControl" required name="2">
+    <mat-error *ngIf="modelControl.hasError('required')">{{resourcer.AdminAddCarModelModelInsert}}</mat-error>
+    <mat-hint>{{modelControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="{{resourcer.AdminAddCarModelSegment}}" (keyup)="isPressEnter($event)" [formControl]="segmentControl"
+      required [(ngModel)]="carModel.segment" (selectionChange)="changeSegment($event.value)">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let carSegment of carSegments" [value]="carSegment.name">
+        {{carSegment.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="segmentControl.hasError('required')">{{resourcer.AdminAddCarModelSegmentInsert}}</mat-error>
+    <mat-hint>{{segmentControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminAddCarModelURL}}" (keyup)="isPressEnter($event)" [(ngModel)]="carModel.url"
+      [formControl]="urlControl" required name="4">
+    <mat-error *ngIf="urlControl.hasError('required')">{{resourcer.AdminAddCarModelURLInsert}}</mat-error>
+    <mat-hint>{{urlControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+  <div class="openButtonContainer">
+
+    <button class="openButton" mat-button (click)="openURLButton()">
+      {{resourcer.AdminAddCarModelOpen}}
+    </button>
+
+  </div>
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{resourcer.AdminAddCarModelAdvancedSettings}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <input matInput placeholder="{{resourcer.AdminAddCarModelMale}}" (keyup)="isPressEnter($event)" type="number"
+            min="1" onkeypress="return event.charCode >= 48" [(ngModel)]="carModel.ownerDetailsPreferences.male"
+            [formControl]="maleControl" required name="1">
+          <mat-error *ngIf="maleControl.hasError('required')">{{resourcer.AdminAddCarModelAmountMaleInsert}}</mat-error>
+          <mat-hint>{{maleControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{resourcer.AdminAddCarModelFemale}}" (keyup)="isPressEnter($event)" type="number"
+            min="1" onkeypress="return event.charCode >= 48" [(ngModel)]="carModel.ownerDetailsPreferences.female"
+            [formControl]="femaleControl" required name="2">
+          <mat-error *ngIf="femaleControl.hasError('required')">{{resourcer.AdminAddCarModelAmountFemaleInsert}}</mat-error>
+          <mat-hint>{{femaleControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{resourcer.AdminAddCarModelPupil}}" (keyup)="isPressEnter($event)" type="number"
+            min="1" pattern="^(?!0)[0-9]{1,2}$" onkeypress="return event.charCode >= 48" [(ngModel)]="carModel.ownerDetailsPreferences.pupil"
+            [formControl]="pupilControl" required name="3">
+          <mat-error *ngIf="pupilControl.hasError('required')">{{resourcer.AdminAddCarModelPupilWeight}}</mat-error>
+          <mat-hint>{{pupilControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{resourcer.AdminAddCarModelStudent}}" (keyup)="isPressEnter($event)" type="number"
+            min="1" pattern="^(?!0)[0-9]{1,2}$" onkeypress="return event.charCode >= 48" [(ngModel)]="carModel.ownerDetailsPreferences.student"
+            [formControl]="studentControl" required name="4">
+          <mat-error *ngIf="studentControl.hasError('required')">{{resourcer.AdminAddCarModelStudentWeight}}</mat-error>
+          <mat-hint>{{studentControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{resourcer.AdminAddCarModelAdult}}" (keyup)="isPressEnter($event)" type="number"
+            min="1" pattern="^(?!0)[0-9]{1,2}$" onkeypress="return event.charCode >= 48" [(ngModel)]="carModel.ownerDetailsPreferences.adult"
+            [formControl]="adultControl" required name="5">
+          <mat-error *ngIf="adultControl.hasError('required')">{{resourcer.AdminAddCarModelAdultWeight}}</mat-error>
+          <mat-hint>{{adultControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{resourcer.AdminAddCarModelPensioner}}" (keyup)="isPressEnter($event)" type="number"
+            min="1" pattern="^(?!0)[0-9]{1,2}$" onkeypress="return event.charCode >= 48" [(ngModel)]="carModel.ownerDetailsPreferences.pensioner"
+            [formControl]="pensionerControl" required name="6">
+          <mat-error *ngIf="pensionerControl.hasError('required')">{{resourcer.AdminAddCarModelPensionerWeight}}</mat-error>
+          <mat-hint>{{pensionerControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <p class="warning" [class.hidden]="isAllFields">{{resourcer.AllFields}}</p>
+  <div>
+    <nav class="lowerButtons">
+      <button mat-button (click)="approveModelButton()">
+        {{resourcer.Approve}}
+      </button>
+    </nav>
+  </div>
+
+</form>

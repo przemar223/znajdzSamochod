@@ -1,0 +1,248 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="backButton()">
+        {{resourcer.Back}}
+      </button>
+    </nav>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{resourcer.ClientUserPreferencesTitle}}
+  </h1>
+</div>
+
+<form class="example-form">
+  <div class="example-form-content">
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesBodyInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesBody}}" [formControl]="carSizeControl" [(ngModel)]="selectedSize"
+            required (selectionChange)="changeType($event.value)">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let size of sizes0" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carSizeControl.hasError('required')">{{resourcer.ClientUserPreferencesBodyInsert}}</mat-error>
+          <mat-hint>{{carSizeControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesPurposeInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesPurpose}}" [formControl]="carTypeControl"
+            [(ngModel)]="selectedType" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let carType of carTypes" [value]="carType.name">
+              {{carType.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carTypeControl.hasError('required')">{{resourcer.ClientUserPreferencesPurposeInsert}}</mat-error>
+          <mat-hint>{{carTypeControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesTrunkCapacityInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesTrunkCapacity}}" [formControl]="carTrunkCapacityControl"
+            [(ngModel)]="selectedTrunkCapacity" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let size of sizes4" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carTrunkCapacityControl.hasError('required')">{{resourcer.ClientUserPreferencesTrunkCapacityInsert}}</mat-error>
+          <mat-hint>{{carTrunkCapacityControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesDriveInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesDrive}}" [formControl]="carDriveControl"
+            [(ngModel)]="selectedDrive" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let drive of drives" [value]="drive">
+              {{drive.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carDriveControl.hasError('required')">{{resourcer.ClientUserPreferencesDriveInsert}}</mat-error>
+          <mat-hint>{{carDriveControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesAccelerationInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesAcceleration}}" [formControl]="carAccelerationControl"
+            [(ngModel)]="selectedAcceleration" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let size of sizes3" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carAccelerationControl.hasError('required')">{{resourcer.ClientUserPreferencesAccelerationInsert}}</mat-error>
+          <mat-hint>{{carAccelerationControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesHorsePowerInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesHorsePower}}" [formControl]="carPowerControl"
+            [(ngModel)]="selectedPower" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let size of sizes2" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carPowerControl.hasError('required')">{{resourcer.ClientUserPreferencesHorsePowerInsert}}</mat-error>
+          <mat-hint>{{carPowerControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesFuelConsumptionInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesFuelConsumption}}" [formControl]="carFuelConsumptionControl"
+            [(ngModel)]="selectedFuelConsumption" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let size of sizes3" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carFuelConsumptionControl.hasError('required')">{{resourcer.ClientUserPreferencesFuelConsumptionInsert}}</mat-error>
+          <mat-hint>{{carFuelConsumptionControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesPriceInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesPrice}}" [formControl]="carPriceControl"
+            [(ngModel)]="selectedPrice" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let size of sizes2" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="carPriceControl.hasError('required')">{{resourcer.ClientUserPreferencesPriceInsert}}</mat-error>
+          <mat-hint>{{carPriceControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesSexInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesSex}}" [formControl]="customerSexControl"
+            [(ngModel)]="selectedSex" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let sex of sexes" [value]="sex">
+              {{sex}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="customerSexControl.hasError('required')">{{resourcer.ClientUserPreferencesSexInsert}}</mat-error>
+          <mat-hint>{{customerSexControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesAgeInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="number" pattern="^(?!10)(?!11)(?!12)(?!13)(?!14)(?!15)(?!16)(?!17)([1-9]{1}[0-9]{1})$"
+            required onkeypress="return event.charCode >= 48" placeholder="{{resourcer.ClientUserPreferencesAge}}"
+            [formControl]="customerAgeControl" [(ngModel)]="selectedAge">
+          <mat-error *ngIf="customerAgeControl.hasError('required')">{{resourcer.ClientUserPreferencesAgeConditions}}</mat-error>
+          <mat-hint>{{customerAgeControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesAmountResultsInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput type="number" pattern="^[0-9]{0,2}$" required min="0" max="99" onkeypress="return event.charCode >= 48"
+            placeholder="{{resourcer.ClientUserPreferencesAmountResults}}" [formControl]="amountCarControl" [(ngModel)]="selectedAmountCars">
+          <mat-error *ngIf="amountCarControl.hasError('required')">{{resourcer.ClientUserPreferencesAmountResultsConditions}}</mat-error>
+          <mat-hint>{{amountCarControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.ClientUserPreferencesProvinceInsert}}</h4>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="{{resourcer.ClientUserPreferencesProvince}}" [formControl]="provinceControl"
+            [(ngModel)]="selectedProvince" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let province of provinces" [value]="province.name">
+              {{province.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="provinceControl.hasError('required')">{{resourcer.ClientUserPreferencesProvinceInsert2}}</mat-error>
+          <mat-hint>{{provinceControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="warning" [hidden]="isAllFields">{{resourcer.AllFields}}</p>
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="searchButton()">
+      {{resourcer.ClientUserPreferencesSearch}}
+    </button>
+  </nav>
+</form>

@@ -1,0 +1,85 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="buttons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout" class="buttons">
+      <button mat-button (click)="addShowroomButton()">
+        {{resourcer.ShowroomsAddShowroom}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout" class="buttons">
+      <button mat-button [disabled]="isShowroomChecked()" (click)="editShowroomButton()">
+        {{resourcer.ShowroomsEditShowroom}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout" class="buttons">
+      <button mat-button [disabled]="isShowroomChecked()" (click)="removeShowroomButton()">
+        {{resourcer.ShowroomsRemoveShowroom}}
+      </button>
+    </nav>
+    <nav *ngIf="!loginService.isLogout && showroomService.wasMarkList" class="buttons">
+      <button mat-button (click)="backToMarkButton()">
+        {{resourcer.Back}}
+      </button>
+    </nav>
+  </div>
+
+  <div *ngIf="!loginService.isLogout" class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="buttons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<p class="warning" [class.hidden]=!isInfo>{{info}}</p>
+
+<div class="title">
+  <h1>
+    {{resourcer.ShowroomsTitle}} {{showroomService.mark}}
+  </h1>
+</div>
+
+<section class="example-section">
+  <label class="example-margin">{{resourcer.ShowroomsFilterBy}}</label>
+  <mat-checkbox class="example-margin" (change)="onItemChange('mark')" [(ngModel)]="mark">{{resourcer.ShowroomsMark}}</mat-checkbox>
+  <mat-checkbox class="example-margin" (change)="onItemChange('address')" [(ngModel)]="address">{{resourcer.ShowroomsAddress}}</mat-checkbox>
+  <mat-checkbox class="example-margin" (change)="onItemChange('province')" [(ngModel)]="province">{{resourcer.ShowroomsProvince}}</mat-checkbox>
+</section>
+
+<mat-form-field>
+  <input matInput [(ngModel)]="label" (keyup)="applyFilter($event.target.value)" placeholder="{{hint}}">
+</mat-form-field>
+
+<table mat-table matSortActive="mark" matSortDirection="asc" matSortDisableClear #table [dataSource]="dataSource"
+  matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="mark">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.ShowroomsMark}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.mark}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.ShowroomsAddress}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="province">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{resourcer.ShowroomsProvince}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.province}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;" [ngClass]="{'highlight': selectedRowIndex == element.id}"
+    (click)="highlight(element)"></tr>
+
+</table>

@@ -1,0 +1,53 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{resourcer.AdminChangeMailboxTitle}}
+  </h1>
+</div>
+
+
+<form class="example-form">
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminChangeMailboxAddress}}" (keyup)="isPressEnter($event)" [(ngModel)]="mailbox.login"
+      [formControl]="emailControl" required>
+    <mat-error *ngIf="emailControl.hasError('required')">{{resourcer.AdminChangeMailboxAddressInsert}}</mat-error>
+    <mat-hint>{{emailControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminChangeMailboxPassword}}" (keyup)="isPressEnter($event)" [(ngModel)]="mailbox.password"
+      [formControl]="passwordControl" required>
+    <mat-error *ngIf="passwordControl.hasError('required')">{{resourcer.AdminChangeMailboxPasswordInsert}}</mat-error>
+    <mat-hint>{{passwordControl.value?.sound}}</mat-hint>
+  </mat-form-field>
+
+  <p class="warning" [class.hidden]="isAllFields">{{warning}}</p>
+
+
+  <nav class="lowerButtons">
+    <button mat-button (click)="approveMailboxButton()">
+      {{resourcer.Approve}}
+    </button>
+  </nav>

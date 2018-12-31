@@ -1,0 +1,137 @@
+* {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+}
+  
+  .title{ }
+  
+  
+.nav-container{
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px solid black;
+  height: 51px;
+}
+ .nav-container-one {
+   width: 77%;
+ }
+
+ .nav-container-two {
+  width: 23%;
+  display: flex;
+  flex-direction: row;
+}
+
+.float-right {
+  float: right;
+}
+
+.nav-container-two button {
+  margin-right:0;
+}
+
+.login-text {
+  width: 70%;
+}
+
+.login-button {
+  width: 30%;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+}
+
+nav{
+  text-align: left;
+  background-color: #eee;
+}
+
+nav button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: solid;
+  display: inline-block;
+  background-color: #cfd8dc;
+  border-radius: 4px;
+  float: left;
+  font-weight: bold;
+}
+
+.example-form {
+  margin:0 auto;
+}
+
+.lowerButtons{
+  text-align: center;
+  margin-top: 2em;
+}
+
+nav {
+  background-color: transparent;
+}
+
+.lowerButtons button {
+  float: none;
+  size: 1em;
+}
+
+.example-form {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+}
+
+.example-form-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 90px;
+}
+
+.example-form-content div {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.example-form-content div div {
+  width:70%;
+}
+
+.example-form-content div div:first-child {
+  padding-left:00%;
+}
+
+.example-form-content div div:last-child {
+  padding-left:00%; /*przesuniecie w prawo inputow*/
+}
+
+.example-form-labels div {
+  text-align: left;
+  padding-left: 40%;
+}
+
+.example-form .example-form-content .example-form-labels {
+  display: flex;
+  flex-direction: column;
+  width:70%;
+}
+
+.example-form-values div {
+  text-align: left;
+}
+
+mat-form-field{
+  display: block;
+  width: 70%; /*majstrowanie wielkoscia inputoiw*/
+  text-align: center;
+
+}
+
+.example-form .example-form-content .example-form-values {
+  display: flex;
+  flex-direction: column;
+  width:70%;
+}
+

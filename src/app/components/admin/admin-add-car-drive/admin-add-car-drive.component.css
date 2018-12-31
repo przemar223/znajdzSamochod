@@ -1,0 +1,82 @@
+* {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+}
+  
+  .title{ }
+    
+  .nav-container{
+    display: flex;
+    flex-direction:row;
+    border-bottom: 1px solid black;
+    height: 51px;
+  }
+   .nav-container-one {
+     width: 50%;
+   }
+  
+   .nav-container-two {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .float-right {
+    float: right;
+  }
+  
+  .nav-container-two button {
+    margin-right:0;
+  }
+  
+  .login-text {
+    padding-right: 10px;
+    text-align: right;
+  }
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+}
+
+nav{
+  text-align: left;
+  background-color: #eee;
+}
+
+nav button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: solid;
+  display: inline-block;
+  background-color: #cfd8dc;
+  border-radius: 4px;
+  float: left;
+  font-weight: bold;
+}
+
+mat-form-field{
+  display: block;
+  width: 20%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.example-form {
+  margin:0 auto;
+}
+
+.lowerButtons{
+  text-align: center;
+  margin-top: 2em;
+}
+
+nav {
+  background-color: transparent;
+}
+
+.lowerButtons button {
+  float: none;
+  size: 1em;
+}

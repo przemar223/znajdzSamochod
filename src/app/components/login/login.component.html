@@ -1,0 +1,33 @@
+<div class="nav-container-one">
+  <nav class="upperButtons">
+    <button mat-button (click)="searchButton()">
+      {{resourcer.AdminLoginGoToSearching}}
+    </button>
+  </nav>
+</div>
+
+<p class="warning" [class.hidden]=loginService.isLogout>{{logoutInfo}}</p>
+
+<div class="title">
+  <h1>
+    {{resourcer.AdminLoginTitle}}
+  </h1>
+
+  <p class="warning" [class.hidden]=isLoginAndPassword>{{resourcer.AdminLoginInsertAllFields}}</p>
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminLoginLogin}}" (keyup)="isPressEnter($event)" [(ngModel)]="login"
+      required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="{{resourcer.AdminLoginPassword}}" (keyup)="isPressEnter($event)" [(ngModel)]="password"
+      [type]="hide ? 'password' : 'text'" required>
+  </mat-form-field>
+
+  <p class="warning" [class.hidden]=isGoodLoginAndPassword>{{resourcer.AdminLoginBadLoginOrPassword}}</p>
+</div>
+<nav class="lowerButtons">
+  <button mat-button (click)="loginAdminButton()">
+    {{resourcer.AdminLoginNext}}
+  </button>
+</nav>

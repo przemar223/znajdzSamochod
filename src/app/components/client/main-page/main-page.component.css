@@ -1,0 +1,93 @@
+* {
+    text-align: center;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+  }
+  
+  .title{
+  
+  }
+  
+  .blue{
+    font-size: 4em;
+    color: #2c434e;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0.2em;
+  }
+
+.nav-container{
+  display: flex;
+  flex-direction:row;
+  border-bottom: 1px solid black;
+  height: 51px;
+}
+ .nav-container-one {
+   width:80%;/*zaloguj*/
+ }
+
+ .nav-container-two {
+  width:20%;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-container-two button {
+  margin-right:0;
+}
+
+.login-text {
+  width: 70%;
+}
+
+.login-button {
+  width: 30%;
+}
+
+h1 {
+  font-size: 4em;
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+
+nav .button {
+  padding: 5px 10px;
+  text-decoration: solid;
+  display: inline-block;
+  background-color: rgb(155, 153, 153);
+  border-radius: 4px;
+  float: left;
+  font-weight: bold;
+}
+
+nav button:link,  button:visited{
+  color: #607d8b;
+}
+
+nav button:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+  font-weight: 900;
+}
+
+.buttons {
+  padding-top: 2em;
+  margin: 0 10% 0 10%;
+}
+
+.buttons ul li {
+  list-style-type: none;
+  /* odstepy miedzy przyciskami */
+  padding-top: 30px; 
+}
+
+.buttons button {
+  padding: 15px 10px;
+  width: 13em;
+  font-size: 3em;
+  text-decoration: none;
+  background-color: rgb(155, 153, 153);
+}
+
+.float-right {
+  float: right;
+}
